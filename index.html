@@ -252,11 +252,18 @@
         function createGalleryPlaceholder(projectId, colorClass, lightColorClass) {
             // Note: colorClass is expected without 'text-' prefix (e.g., 'climate-green')
             const customGallery = projectGalleries[projectId];
+            
+            const descriptions = {
+                project1: "Fieldwork photos from stakeholder interviews and site visits.",
+                project2: "Program highlights and community engagement activities.",
+                project3: "Community outreach and awareness initiative photos.",
+                project4: "Forum collaboration and innovation project highlights."
+            };
 
             if (customGallery) {
                 return `
                     <p class="text-xl font-semibold mt-8 border-b pb-2 text-${colorClass}">Gallery & Supporting Materials</p>
-                    <p class="text-sm text-gray-500 mt-2">Fieldwork photos from stakeholder interviews and site visits.</p>
+                    <p class="text-sm text-gray-500 mt-2">${descriptions[projectId] || "Gallery and supporting materials."}</p>
                     ${customGallery}
                 `;
             }
